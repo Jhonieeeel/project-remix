@@ -4,6 +4,7 @@ import {
   ShoppingBasket,
   ShoppingCart,
   Star,
+  Package2,
 } from "lucide-react";
 
 import NavLink from "./nav-link";
@@ -21,6 +22,11 @@ export default function Sidebar() {
           <NavLink active={pathIs("admin/dashboard.*")} url={"admin/dashboard"}>
             <LayoutDashboard />
             Dashboard
+          </NavLink>
+
+          <NavLink active={pathIs("admin/products.*")} url={"admin/products"}>
+            <Package2 />
+            Products
           </NavLink>
 
           <NavLink active={pathIs("admin/orders.*")} url={"admin/orders"}>
