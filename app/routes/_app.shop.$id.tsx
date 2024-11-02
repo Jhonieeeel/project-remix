@@ -2,7 +2,7 @@ import { LoaderFunctionArgs } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { ShoppingCart } from "lucide-react";
 
-import nursingBooks from "~/data/data";
+import { nursingBooks } from "~/data/data";
 
 export async function loader({ params }: LoaderFunctionArgs) {
   const book = nursingBooks.find((book) => book.book_id == params.id);

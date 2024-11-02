@@ -1,5 +1,6 @@
 import { MetaFunction, useLoaderData } from "@remix-run/react";
 import Books from "~/components/books";
+import products from "~/data/product";
 
 const API_URL = "https://fsuu-store-api.onrender.com";
 
@@ -19,9 +20,14 @@ export const meta: MetaFunction = () => {
 };
 
 export async function loader() {
-  let response = await fetch(`${API_URL}/api/products?populate=images`);
-
-  return { products: (await response.json()).data } as { products: Product[] };
+  try {
+    let response = await fetch(`${API_URL}/api/products?populate=images`);
+    return { products: (await response.json()).data } as {
+      products: Product[];
+    };
+  } catch (error) {
+    return { products: [] };
+  }
 }
 
 export default function Home() {
@@ -49,6 +55,7 @@ export default function Home() {
               <img src={`${API_URL}${product.images[0].url}`} alt="" />
             </>
           ))}
+          {products && <p>Cannot connect to backend.</p>}
         </div>
       </div>
     </div>

@@ -28,4 +28,74 @@ export const nursingBooks = [
   },
 ];
 
-export default nursingBooks;
+export const products = [
+  {
+    id: "1",
+    name: "Polo College (Male)",
+    category: "uniform",
+    image: "/public/uniforms/uniform-1.png",
+    price: 350,
+  },
+  {
+    id: "2",
+    name: "Pants College (Unisex)",
+    category: "uniform",
+    image: "/public/uniforms/uniform-2.png",
+    price: 320,
+  },
+  {
+    id: "3",
+    name: "Blouse College (Female)",
+    image: "/public/uniforms/uniform-3.png",
+    category: "uniform",
+    price: 310,
+  },
+  {
+    id: "4",
+    name: "Skirt College (Female)",
+    image: "/public/uniforms/uniform-4.png",
+    category: "uniform",
+    price: 300,
+  },
+];
+
+export const otherItems = [
+  {
+    id: "asdadd",
+    name: "Athletic T Shirt",
+    image: "/public/items/item-1.png",
+    price: 385,
+  },
+  {
+    id: "asdsaaad",
+    name: "Rover Scout T Shirt",
+    image: "/public/items/item-2.png",
+    price: 359,
+  },
+  {
+    id: "asd",
+    name: "CWTS T Shirt",
+    image: "/public/items/item-3.png",
+    price: 350,
+  },
+  {
+    id: "sdsd",
+    name: "Swimwear (Female)",
+    image: "/public/items/item-4.png",
+    price: 350,
+  },
+  {
+    id: "asd",
+    name: "Swimwear (Male)",
+    image: "/public/items/item-5.png",
+    price: 350,
+  },
+  {
+    id: "ad",
+    name: "Swimcap",
+    image: "/public/items/item-6.png",
+    price: 350,
+  },
+];
+
+export default { nursingBooks, products, otherItems };
