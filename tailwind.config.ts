@@ -1,11 +1,13 @@
 import type { Config } from "tailwindcss";
 import forms from "@tailwindcss/forms";
 
+import flowbite from "flowbite-react/tailwind";
+
 export default {
-  darkMode: "class",
   content: [
     "./app/**/{**,.client,.server}/**/*.{js,jsx,ts,tsx}",
     "node_modules/preline/dist/*.js",
+    flowbite.content(),
   ],
   theme: {
     extend: {
@@ -51,5 +53,5 @@ export default {
       },
     },
   },
-  plugins: [require("preline/plugin"), forms],
+  plugins: [require("preline/plugin"), flowbite.plugin(), forms],
 } satisfies Config;

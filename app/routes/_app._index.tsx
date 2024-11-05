@@ -1,13 +1,34 @@
-import { MetaFunction } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
-import { getProducts } from "~/api/products";
+
+import { MetaFunction, useLoaderData } from "@remix-run/react";
+import Books from "~/components/books";
+import products from "~/data/product";
+
+const API_URL = "https://fsuu-store-api.onrender.com";
+
+interface Image {
+  url: string;
+}
+
+interface Product {
+  id: number;
+  title: string;
+  price: string;
+  images: Image[];
+}
 
 export const meta: MetaFunction = () => {
   return [{ title: "FSUU Online Book Store" }];
 };
 
 export async function loader() {
-  return { products: await getProducts({ category: "books" }) };
+  try {
+    let response = await fetch(`${API_URL}/api/products?populate=images`);
+    return { products: (await response.json()).data } as {
+      products: Product[];
+    };
+  } catch (error) {
+    return { products: [] };
+  }
 }
 
 export default function Welcome() {
@@ -23,34 +44,17 @@ export default function Welcome() {
           <p className="mt-1 text-gray-700">
             &quot;Why Wait in Line? Get Your School Gear Online&quot;
           </p>
-          <p className="text-gray-700">&minus; Fast Easy and Convenient</p>
-        </header>
+        </div>
 
-        <div className="mt-6">
-          <h2 className="text-3xl font-medium leading-tight text-gray-900">
-            Best Selling Books
-          </h2>
-
-          <div className="mt-6 grid max-w-3xl gap-6 md:grid-cols-3">
-            {products?.map((product) => (
-              <article
-                key={product.id}
-                className="flex flex-col items-start justify-center gap-y-2"
-              >
-                <img
-                  src={product.images?.[0].url}
-                  alt=""
-                  className="mx-auto h-48 w-auto"
-                />
-                <h2 className="font-medium leading-tight text-gray-900">
-                  {product.title}
-                </h2>
-                <p className="text-gray-700">
-                  &#8369;{product.price.toLocaleString()}
-                </p>
-              </article>
-            ))}
-          </div>
+        <div className="books ml-16">
+          <h3 className="text-2xl font-semibold">Best Selling Book</h3>
+          {products.map((product) => (
+            <>
+              <p>{product.title}</p>
+              <img src={`${API_URL}${product.images[0].url}`} alt="" />
+            </>
+          ))}
+          {products && <p>Cannot connect to backend.</p>}
         </div>
       </div>
     </div>
