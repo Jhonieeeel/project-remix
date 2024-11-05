@@ -1,3 +1,4 @@
+
 import { MetaFunction, useLoaderData } from "@remix-run/react";
 import Books from "~/components/books";
 import products from "~/data/product";
@@ -16,7 +17,7 @@ interface Product {
 }
 
 export const meta: MetaFunction = () => {
-  return [{ title: "WHATTHEFUCK" }];
+  return [{ title: "FSUU Online Book Store" }];
 };
 
 export async function loader() {
@@ -30,25 +31,23 @@ export async function loader() {
   }
 }
 
-export default function Home() {
+export default function Welcome() {
   let { products } = useLoaderData<typeof loader>();
 
   return (
-    <div className="flex w-full items-start justify-between">
-      <div className="ml-6">
-        <div className="mb-5 block py-8 text-6xl font-bold leading-normal">
-          <h1>FSUU</h1>
-          <h1>ONLINE BOOK STORE</h1>
-          <p className="ml-5 text-xl font-semibold">
-            "Why Wait in Line? Get Your School Gear Online
-            <span className="block">– Fast, Easy, and Convenient!"</span>
+    <div className="py-6">
+      <div className="mx-auto max-w-7xl md:px-6 lg:px-8">
+        <header>
+          <h1 className="text-6xl font-semibold uppercase leading-tight text-gray-900">
+            FSUU <br /> Online Book Store
+          </h1>
+          <p className="mt-1 text-gray-700">
+            &quot;Why Wait in Line? Get Your School Gear Online&quot;
           </p>
         </div>
 
-        {/* books */}
         <div className="books ml-16">
           <h3 className="text-2xl font-semibold">Best Selling Book</h3>
-          {/* <Books  /> */}
           {products.map((product) => (
             <>
               <p>{product.title}</p>

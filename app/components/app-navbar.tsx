@@ -120,7 +120,7 @@ export default function AppNavbar() {
               </div>
 
               <div className="my-2 md:mx-2 md:my-0">
-                <div className="h-px w-full bg-gray-100 md:h-4 md:w-px md:bg-gray-300 dark:bg-neutral-700"></div>
+                <div className="h-px w-full bg-gray-100 dark:bg-neutral-700 md:h-4 md:w-px md:bg-gray-300"></div>
               </div>
 
               <div className="flex flex-wrap items-center gap-x-1.5">

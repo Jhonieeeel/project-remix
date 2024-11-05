@@ -7,7 +7,7 @@ import {
   Package2,
 } from "lucide-react";
 
-import NavLink from "./nav-link";
+import SidebarNavLink from "./sidebar-nav-link";
 import { pathIs } from "~/utils/request";
 
 export default function Sidebar() {
@@ -19,30 +19,30 @@ export default function Sidebar() {
           <p className="text-lg font-semibold">Admin</p>
         </div>
         <ul className="w-full space-y-4">
-          <NavLink active={pathIs("admin/dashboard.*")} url={"admin/dashboard"}>
+          <SidebarNavLink active={pathIs("admin/dashboard.*")} url={"admin/dashboard"}>
             <LayoutDashboard />
             Dashboard
-          </NavLink>
+          </SidebarNavLink>
 
-          <NavLink active={pathIs("admin/products.*")} url={"admin/products"}>
+          <SidebarNavLink active={pathIs("admin/products.*")} url={"admin/products"}>
             <Package2 />
             Products
-          </NavLink>
+          </SidebarNavLink>
 
-          <NavLink active={pathIs("admin/orders.*")} url={"admin/orders"}>
+          <SidebarNavLink active={pathIs("admin/orders.*")} url={"admin/orders"}>
             <ShoppingCart />
             Orders
-          </NavLink>
+          </SidebarNavLink>
 
-          <NavLink active={pathIs("admin/customers.*")} url={"admin/customers"}>
+          <SidebarNavLink active={pathIs("admin/customers.*")} url={"admin/customers"}>
             <Users />
             Customers
-          </NavLink>
+          </SidebarNavLink>
 
-          <NavLink active={pathIs("admin/reviews.*")} url={"admin/reviews"}>
+          <SidebarNavLink active={pathIs("admin/reviews.*")} url={"admin/reviews"}>
             <Star />
             Reviews
-          </NavLink>
+          </SidebarNavLink>
         </ul>
       </div>
     </div>
